@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(methodOverride("_method"));
 
 app.get("/", (req, res) => {
-  res.render('index')
+  res.render("index");
 });
 
 app.listen(port, () =>
