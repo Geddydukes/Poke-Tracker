@@ -24,6 +24,7 @@ router.post("/register", async (req, res) => {
       name: req.body.name,
       email: req.body.email,
       password: hash,
+      aboutMe: req.body.aboutMe,
     };
     await db.Trainer.create(trainerData);
     res.redirect("/auth/login");

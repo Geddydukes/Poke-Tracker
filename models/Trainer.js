@@ -13,6 +13,7 @@ const TrainerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  aboutMe: String,
 });
 
 const Trainer = mongoose.model("Trainer", TrainerSchema);

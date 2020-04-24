@@ -7,6 +7,7 @@ const P = new Pokedex();
 const app = express();
 
 const authController = require("./controllers/authController");
+const trainerController = require("./controllers/trainerController");
 
 const db = require("./models");
 
@@ -23,6 +24,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", authController);
+app.use("/trainer", trainerController);
 
 app.listen(port, () =>
   console.log(`Hey pokedex server is on at port: ${port} `)
