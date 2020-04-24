@@ -3,6 +3,38 @@
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-    vertical-align: baseline;
-    padding-bottom: 10px;
+}
+.dexbody{
+    width:1000px; 
+    height:450px; 
+    border:1px solid #000; 
+    background: #D44338;
+    border-radius: 20px;
+    position: absolute;
+    top: 240px; left: 300px;
+}
+.dextail{
+    z-index: 1;
+    width:0; 
+    height:0; 
+     border-top:100px solid red;
+    border-left:50px solid transparent;
+    border-right:50px solid transparent; 
+    position: absolute;
+    top: 700px; left: 760px;
+}
+.dexneck {
+    width:60px; 
+    height:100px; 
+    
+    background:yellow; 
+    position: absolute;
+    top: 139px; left: 760px;
+}
+.dexneck-right{
+    width:100px; 
+     height:60px; 
+     background:yellow;
+     left: 760px; top: 120px;
+     position: absolute;
 }
