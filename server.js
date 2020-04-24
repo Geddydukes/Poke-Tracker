@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(methodOverride("_method"));
 
 app.get("/", (req, res) => {
-  res.send(`<h1>Hey Poke fans</h1>`);
+  res.render('index')
 });
 
 app.listen(port, () =>
