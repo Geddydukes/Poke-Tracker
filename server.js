@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const port = process.env.PORT || 3800;
+const Pokedex = require("pokedex-promise-v2");
+const P = new Pokedex();
 const app = express();
 
 app.set("view engine", "ejs");
