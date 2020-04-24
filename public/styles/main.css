@@ -26,7 +26,15 @@
 .dexneck {
     width:60px; 
     height:100px; 
-    border:1px solid #000; 
+    
     background:yellow; 
     position: absolute;
+    top: 139px; left: 760px;
+}
+.dexneck-right{
+    width:100px; 
+     height:60px; 
+     background:yellow;
+     left: 760px; top: 120px;
+     position: absolute;
 }
