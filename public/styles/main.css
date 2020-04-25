@@ -4,6 +4,9 @@
 	border: 0;
 	font-size: 100%;
 }
+body{
+    background-color: #B0c4de;
+}
 .dexbody{
     width:1000px; 
     height:450px; 

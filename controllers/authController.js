@@ -28,6 +28,7 @@ router.post("/register", async (req, res) => {
     };
     await db.Trainer.create(trainerData);
     res.redirect("/auth/login");
+
   } catch (err) {
     return res.send(err);
   }
