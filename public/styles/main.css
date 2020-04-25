@@ -11,7 +11,7 @@
     background: #D44338;
     border-radius: 20px;
     position: absolute;
-    top: 240px; left: 300px;
+    top: 200px; left: 150px;
 }
 .dextail{
     z-index: 1;
@@ -21,7 +21,7 @@
     border-left:50px solid transparent;
     border-right:50px solid transparent; 
     position: absolute;
-    top: 700px; left: 760px;
+    top: 650px; left: 560px;
 }
 .dexneck {
     width:60px; 
@@ -29,12 +29,13 @@
     
     background:yellow; 
     position: absolute;
-    top: 139px; left: 760px;
+    top: 100px; left: 560px;
 }
 .dexneck-right{
-    width:100px; 
+    width: 70px; 
      height:60px; 
      background:yellow;
-     left: 760px; top: 120px;
+     left: 560px; top: 40px;
      position: absolute;
+     border-radius: 0px 60px 0px 0px;
 }
