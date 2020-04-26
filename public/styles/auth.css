@@ -23,6 +23,7 @@ body{
     font-family: 'Pokemon';
     letter-spacing: 4px;
     word-spacing: 4px;
+    margin-top: 10px;
 }
 h1{
     font-size: xx-large;
@@ -43,4 +44,8 @@ h1{
     flex-direction: row;
     flex: left;
     justify-content: space-evenly;
+    font-weight: 200;
+}
+a{
+    text-decoration: none
 }
