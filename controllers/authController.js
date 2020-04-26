@@ -5,8 +5,7 @@ const router = express.Router();
 const db = require("../models/index");
 
 router.get("/register", (req, res) => {
-  //   res.send("<h1>Well hello</h1>");
-  res.render("auth/register");
+  res.render("auth/register", {});
 });
 
 router.post("/register", async (req, res) => {
@@ -34,7 +33,7 @@ router.post("/register", async (req, res) => {
 
 router.get("/login", (req, res) => {
   //   res.render("auth/login");
-  res.send("hella");
+  res.render("auth/login");
 });
 
 router.post("/login", async (req, res) => {
