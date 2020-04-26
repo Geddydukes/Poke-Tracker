@@ -37,3 +37,10 @@ h1{
 .regContainer{
     margin-left: 15px;
 }
+.nav_ul{
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    flex: left;
+    justify-content: space-evenly;
+}
