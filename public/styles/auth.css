@@ -31,6 +31,9 @@ h1{
     margin-left: 20px;
 }
 .login_container{
-    margin-left: 500px;
+    margin-left: 600px;
     margin-top: 240px;
+}
+.regContainer{
+    margin-left: 15px;
 }

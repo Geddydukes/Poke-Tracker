@@ -5,10 +5,9 @@ const router = express.Router();
 const db = require("../models/index");
 
 router.get("/register", (req, res) => {
-  res.send("<h1>Well hello</h1>");
-  //   res.render("/auth/register", {
+  res.render("auth/register", {
 
-  //   });
+  });
 });
 
 router.post("/register", async (req, res) => {
