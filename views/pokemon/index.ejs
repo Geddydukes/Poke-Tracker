@@ -91,36 +91,6 @@
 
       <% } %>
     </div>
-    <div>
-      <% for(let i = 0; i < johtoPokemon.pokemon_entries.length; i++) { %>
-      <a
-        href="/pokemon/<%= johtoPokemon.pokemon_entries[i].pokemon_species.name %>"
-      >
-        <li>
-          <%= johtoPokemon.pokemon_entries[i].pokemon_species.name %>
-          <img
-            src="https://img.pokemondb.net/sprites/home/normal/<%= johtoPokemon.pokemon_entries[i].pokemon_species.name %>.png"
-            alt="<%= johtoPokemon.pokemon_entries[i].pokemon_species.name %>"
-          /></li
-      ></a>
-
-      <% } %>
-    </div>
-    <div>
-      <% for(let i = 0; i < hoennPokemon.pokemon_entries.length; i++) { %>
-      <a
-        href="/pokemon/<%= hoennPokemon.pokemon_entries[i].pokemon_species.name %>"
-      >
-        <li>
-          <%= hoennPokemon.pokemon_entries[i].pokemon_species.name %>
-          <img
-            src="https://img.pokemondb.net/sprites/home/normal/<%= hoennPokemon.pokemon_entries[i].pokemon_species.name %>.png"
-            alt="<%= hoennPokemon.pokemon_entries[i].pokemon_species.name %>"
-          /></li
-      ></a>
-
-      <% } %>
-    </div>
     <!--This will be in a partial-->
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
