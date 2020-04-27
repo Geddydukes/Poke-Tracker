@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/auth.css" />
+    <title>Registration</title>
+  </head>
+
+  <body>
+    <%- include('../partials/_nav') %>
+    <h1>Registration</h1>
+    <div class="regContainer">
+      <form action="/trainer/index" method="POST">
+        <div>
+          <label for="trainerName">Trainer Name</label><br />
+          <input type="text" id="trainerName" name="trainerName" />
+        </div>
+        <div>
+          <label for="favPokemon">Favorite Pokemon </label><br />
+          <input type="text" id="favPokemon" name="favPokemon" />
+        </div>
+        <div>
+          <label for="goTeam">Pokemon Go Team </label><br />
+          <select id="goTeam" name="goTeam">
+            <option value="pickAteam" disabled>Pick a GO Team</option>
+            <option value="Valor">Valor</option>
+            <option value="Mystic">Mystic</option>
+            <option value="Instinct">Instinct</option>
+            <option value="n/a">N/A</option>
+          </select>
+        </div>
+        <div>
+          <label for="aboutMe">About Me</label><br />
+          <textarea name="aboutMe" id="aboutMe" cols="50" rows="10"></textarea>
+        </div>
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  </body>
+</html>

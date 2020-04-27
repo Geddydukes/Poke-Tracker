@@ -4,7 +4,11 @@ const router = express.Router();
 const db = require("../models/index");
 
 router.get("/", (req, res) => {
-  res.render("trainer/show")
+  res.render("trainer/show");
+});
+
+router.get("/new", (req, res) => {
+  res.render("trainer/new");
 });
 
 router.get("/:id", async (req, res) => {
