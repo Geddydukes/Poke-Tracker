@@ -5,7 +5,11 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   try {
-    const allPokemon = await P.getPokemonsList();
+    const interval = {
+      limit: 793,
+      offset: 1,
+    };
+    const allPokemon = await P.getPokemonsList(interval);
     // const kantoPokemon = await P.getPokedexByName("kanto");
     // console.log(allPokemon);
     // res.send(allPokemon);

@@ -54,6 +54,21 @@
             />
           </div>
           <% } %>
+          <!--This is the closing of the block-->
+          <!-- <div class="carousel-item">
+            <img
+              src="https://picsum.photos/350"
+              class="d-block w-10"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://picsum.photos/350"
+              class="d-block w-10"
+              alt="..."
+            />
+          </div> -->
         </div>
         <a
           class="carousel-control-prev"
@@ -75,19 +90,23 @@
         </a>
       </div>
     </div>
-    <div>
-      <% for(let i = 0; i < pokemon.results.length; i++) { %>
+    <h2>National Pokedex</h2>
+    <div class="pokemonContainer">
+      <% for(let i = 0; i < pokemon.results.length; i++) { %> <%
+      if(pokemon.results[i].name !== "mimikyu-disguised" || "minior-red-meteor")
+      %>
       <a href="/pokemon/<%= pokemon.results[i].name %>">
         <li>
           <%= pokemon.results[i].name %>
           <img
             src="https://img.pokemondb.net/sprites/home/normal/<%= pokemon.results[i].name %>.png"
             alt="<%= pokemon.results[i].name %>"
-          /></li
-      ></a>
-
+          />
+        </li>
+      </a>
       <% } %>
     </div>
+
     <!--This will be in a partial-->
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
