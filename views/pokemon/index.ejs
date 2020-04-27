@@ -38,11 +38,18 @@
         </ol>
         <div class="carousel-inner">
           <!--The forEach loop to render sprites should go in here-->
-          <% for(let i = 0; i < kantoPokemon.pokemon_entries.length; i++) { %>
           <div class="carousel-item active">
             <!--This is the start of the img block-->
+            <img src="http://img.pokemondb.net/artwork/<%=
+            kantoPokemon.pokemon_entries[0].pokemon_species.name %>.jpg"
+            class="d-block w-10" alt="..." " />
+          </div>
+
+          <% for(let i = 1; i < kantoPokemon.pokemon_entries.length; i++) { %>
+          <div class="carousel-item">
+            <!--This is the start of the img block-->
             <img
-              src="https://img.pokemondb.net/sprites/home/normal/<%= kantoPokemon.pokemon_entries[i].pokemon_species.name %>.png"
+              src="http://img.pokemondb.net/artwork/<%= kantoPokemon.pokemon_entries[i].pokemon_species.name %>.jpg"
               class="d-block w-10"
               alt="..."
             />
