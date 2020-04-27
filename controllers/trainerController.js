@@ -4,7 +4,7 @@ const router = express.Router();
 const db = require("../models/index");
 
 router.get("/", (req, res) => {
-  res.redirect("auth/login");
+  res.send("<h1>you made it</h1>");
 });
 
 router.get("/:id", async (req, res) => {
