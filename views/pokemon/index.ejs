@@ -55,21 +55,6 @@
             />
           </div>
           <% } %>
-          <!--This is the closing of the block-->
-          <!-- <div class="carousel-item">
-            <img
-              src="https://picsum.photos/350"
-              class="d-block w-10"
-              alt="..."
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://picsum.photos/350"
-              class="d-block w-10"
-              alt="..."
-            />
-          </div> -->
         </div>
         <a
           class="carousel-control-prev"
@@ -91,21 +76,51 @@
         </a>
       </div>
     </div>
+    <div>
+      <% for(let i = 0; i < kantoPokemon.pokemon_entries.length; i++) { %>
+      <a
+        href="/pokemon/<%= kantoPokemon.pokemon_entries[i].pokemon_species.name %>"
+      >
+        <li>
+          <%= kantoPokemon.pokemon_entries[i].pokemon_species.name %>
+          <img
+            src="https://img.pokemondb.net/sprites/home/normal/<%= kantoPokemon.pokemon_entries[i].pokemon_species.name %>.png"
+            alt="<%= kantoPokemon.pokemon_entries[i].pokemon_species.name %>"
+          /></li
+      ></a>
 
-    <% for(let i = 0; i < kantoPokemon.pokemon_entries.length; i++) { %>
-    <a
-      href="/pokemon/<%= kantoPokemon.pokemon_entries[i].pokemon_species.name %>"
-    >
-      <li>
-        <%= kantoPokemon.pokemon_entries[i].pokemon_species.name %>
-        <img
-          src="https://img.pokemondb.net/sprites/home/normal/<%= kantoPokemon.pokemon_entries[i].pokemon_species.name %>.png"
-          alt="<%= kantoPokemon.pokemon_entries[i].pokemon_species.name %>"
-        /></li
-    ></a>
+      <% } %>
+    </div>
+    <div>
+      <% for(let i = 0; i < johtoPokemon.pokemon_entries.length; i++) { %>
+      <a
+        href="/pokemon/<%= johtoPokemon.pokemon_entries[i].pokemon_species.name %>"
+      >
+        <li>
+          <%= johtoPokemon.pokemon_entries[i].pokemon_species.name %>
+          <img
+            src="https://img.pokemondb.net/sprites/home/normal/<%= johtoPokemon.pokemon_entries[i].pokemon_species.name %>.png"
+            alt="<%= johtoPokemon.pokemon_entries[i].pokemon_species.name %>"
+          /></li
+      ></a>
 
-    <% } %>
+      <% } %>
+    </div>
+    <div>
+      <% for(let i = 0; i < hoennPokemon.pokemon_entries.length; i++) { %>
+      <a
+        href="/pokemon/<%= hoennPokemon.pokemon_entries[i].pokemon_species.name %>"
+      >
+        <li>
+          <%= hoennPokemon.pokemon_entries[i].pokemon_species.name %>
+          <img
+            src="https://img.pokemondb.net/sprites/home/normal/<%= hoennPokemon.pokemon_entries[i].pokemon_species.name %>.png"
+            alt="<%= hoennPokemon.pokemon_entries[i].pokemon_species.name %>"
+          /></li
+      ></a>
 
+      <% } %>
+    </div>
     <!--This will be in a partial-->
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
