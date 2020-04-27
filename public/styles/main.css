@@ -97,3 +97,10 @@ footer {
 a {
   text-decoration: none;
 }
+.pokemonContainer{
+    display: flex;
+    align-content: space-between;
+    flex-direction: row;
+    flex: left;
+    flex-wrap: wrap;
+}
