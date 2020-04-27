@@ -44,8 +44,9 @@ router.get("/login", (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
+    console.log(req.body);
     const trainer = await db.Trainer.findOne({ username: req.body.username });
-    if (trainer) {
+    if (!trainer) {
       return res.render("auth/login", {
         error: "Invalid Login Credentials",
       });
