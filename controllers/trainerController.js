@@ -4,7 +4,7 @@ const router = express.Router();
 const db = require("../models/index");
 
 router.get("/", (req, res) => {
-  res.send("<h1>you made it</h1>");
+  res.render("trainer/show")
 });
 
 router.get("/:id", async (req, res) => {
