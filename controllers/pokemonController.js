@@ -6,6 +6,7 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     const kantoPokemon = await P.getPokedexByName("kanto");
+    // res.send(kantoPokemon);
     res.render("pokemon/index", {
       kantoPokemon: kantoPokemon,
     });
@@ -16,11 +17,15 @@ router.get("/", async (req, res) => {
 
 router.get("/:name", async (req, res) => {
   try {
-    const foundPokemon = await P.getPokemonByName(req.body.name);
+    const foundPokemon = await P.getPokemonByName(`${req.params.name}`);
+    console.log(foundPokemon);
     res.render("pokemon/show", {
       pokemon: foundPokemon,
     });
-  } catch (err) {}
+  } catch (err) {
+    // console.log(err);
+    return res.send(err);
+  }
 });
 
 module.exports = router;

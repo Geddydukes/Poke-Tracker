@@ -4,6 +4,7 @@ const methodOverride = require("method-override");
 const port = process.env.PORT || 3800;
 const Pokedex = require("pokedex-promise-v2");
 const P = new Pokedex();
+require("dotenv").config();
 const app = express();
 
 const authController = require("./controllers/authController");

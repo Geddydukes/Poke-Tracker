@@ -5,14 +5,12 @@ const router = express.Router();
 const db = require("../models/index");
 
 router.get("/register", (req, res) => {
-  res.render("auth/register", {
-
-  });
+  res.render("auth/register", {});
 });
 
 router.post("/register", async (req, res) => {
   try {
-    const trainer = await db.Trainer.findone({ name: req.body.name });
+    const trainer = await db.Trainer.find({ name: req.body.name });
     if (trainer) {
       return res.send("<h1>Account exists<h1>");
     }
@@ -25,17 +23,17 @@ router.post("/register", async (req, res) => {
       password: hash,
       aboutMe: req.body.aboutMe,
     };
+    console.log(trainerData);
     await db.Trainer.create(trainerData);
     res.redirect("/auth/login");
-
   } catch (err) {
-    return res.send(err);
+    return console.log(err);
   }
 });
 
 router.get("/login", (req, res) => {
   //   res.render("auth/login");
-  res.render("auth/login")
+  res.render("auth/login");
 });
 
 router.post("/login", async (req, res) => {
