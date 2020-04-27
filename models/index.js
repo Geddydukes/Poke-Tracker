@@ -17,4 +17,5 @@ mongoose
 module.exports = {
   Pokemon: require("./Pokemon"),
   Trainer: require("./Trainer"),
+  User: require("./User"),
 };

@@ -11,18 +11,10 @@
     <%- include('../partials/_nav') %>
     <h1>Registration</h1>
     <div class="regContainer">
-      <form action="/auth/register" method="POST">
+      <form action="/trainer/index" method="POST">
         <div>
-          <label for="username">Username</label><br />
-          <input type="text" id="username" name="username" />
-        </div>
-        <div>
-          <label for="firstName">First Name</label><br />
-          <input type="text" id="firstName" name="firstName" />
-        </div>
-        <div>
-          <label for="lastName">Last Name</label><br />
-          <input type="text" id="lastName" name="lastName" />
+          <label for="trainerName">Trainer Name</label><br />
+          <input type="text" id="trainerName" name="trainerName" />
         </div>
         <div>
           <label for="favPokemon">Favorite Pokemon </label><br />
@@ -37,14 +29,6 @@
             <option value="Instinct">Instinct</option>
             <option value="n/a">N/A</option>
           </select>
-        </div>
-        <div>
-          <label for="email">Email</label><br />
-          <input type="email" id="name" name="name" />
-        </div>
-        <div>
-          <label for="password">Password</label><br />
-          <input type="password" id="password" name="passsword" />
         </div>
         <div>
           <label for="aboutMe">About Me</label><br />

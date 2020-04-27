@@ -10,27 +10,24 @@ router.get("/register", (req, res) => {
 
 router.post("/register", async (req, res) => {
   try {
-    const trainer = await db.Trainer.findOne({ username: req.body.username });
+    const user = await db.User.findOne({ username: req.body.username });
     console.log(req.body);
-    if (trainer) {
+    if (user) {
       return res.send("<h1>Account exists<h1>");
     }
     // TODO fix bcrypt
-    // const salt = bcrypt.genSaltSync(10);
-    // const hash = bcrypt.hashSync(req.body.password, salt);
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(req.body.password, salt);
 
-    const trainerData = {
+    const userData = {
       username: req.body.username,
       firstName: req.body.firstName,
       lastName: req.body.lastName,
-      favPokemon: req.body.favPokemon,
-      goTeam: req.body.goTeam,
       email: req.body.email,
       //   password: hash,
-      aboutMe: req.body.aboutMe,
     };
-    // console.log(trainerData);
-    await db.Trainer.create(trainerData);
+    // console.log(UserData);
+    await db.User.create(userData);
     res.redirect("/auth/login");
   } catch (err) {
     return console.log(err);
@@ -45,8 +42,8 @@ router.get("/login", (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     console.log(req.body);
-    const trainer = await db.Trainer.findOne({ username: req.body.username });
-    if (!trainer) {
+    const user = await db.User.findOne({ username: req.body.username });
+    if (!user) {
       return res.render("auth/login", {
         error: "Invalid Login Credentials",
       });
@@ -55,14 +52,14 @@ router.post("/login", async (req, res) => {
     // TODO fix bcrypt
     // const passwordsMatch = bcrypt.compareSync(
     //   req.body.password,
-    //   trainer.password
+    //   User.password
     // );
     // if (password!=="1234") {
     //   return res.render("auth/login", {
     //     error: "Invalid Login Credentials",
     //   });
     // }
-    res.redirect("/trainer");
+    res.redirect("/trainer/index");
   } catch (err) {
     return res.send(err);
   }

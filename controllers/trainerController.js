@@ -4,7 +4,15 @@ const router = express.Router();
 const db = require("../models/index");
 
 router.get("/", (req, res) => {
-  res.render("trainer/show")
+  res.render("trainer/show");
+});
+
+router.get("/new", (req, res) => {
+  res.render("trainer/new");
+});
+
+router.post("/index", async (req, res) => {
+  const newTrainer = db.Trainer.create(req.body);
 });
 
 router.get("/:id", async (req, res) => {
