@@ -104,3 +104,16 @@ a {
     flex: left;
     flex-wrap: wrap;
 }
+.moves_container{
+    display: flex;
+    align-content: space-between;
+    flex-direction: row;
+    flex: left;
+    flex-wrap: wrap;
+}
+.show_container{
+    margin-left: 10px;
+}
+.pokemon_name{
+    text-transform: capitalize;
+}
