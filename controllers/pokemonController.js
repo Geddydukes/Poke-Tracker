@@ -5,16 +5,12 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   try {
-    // const allPokemon = await P.getPokemonsList();
-    const kantoPokemon = await P.getPokedexByName("kanto");
-    const johtoPokemon = await P.getPokedexByName("Johto");
-    // const hoennPokemon = await P.getPokedexByName("hoenn");
+    const allPokemon = await P.getPokemonsList();
+    // const kantoPokemon = await P.getPokedexByName("kanto");
     // console.log(allPokemon);
     // res.send(allPokemon);
     res.render("pokemon/index", {
-      kantoPokemon: kantoPokemon,
-      johtoPokemon: johtoPokemon,
-      hoennPokemon: hoennPokemon,
+      pokemon: allPokemon,
     });
   } catch (err) {
     return res.send(err);

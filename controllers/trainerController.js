@@ -11,6 +11,10 @@ router.get("/new", (req, res) => {
   res.render("trainer/new");
 });
 
+router.post("/index", async (req, res) => {
+  const newTrainer = db.Trainer.create(req.body);
+});
+
 router.get("/:id", async (req, res) => {
   try {
     const foundTrainer = await db.Trainer.findById(req.params.id).populate(

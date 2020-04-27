@@ -16,8 +16,8 @@ router.post("/register", async (req, res) => {
       return res.send("<h1>Account exists<h1>");
     }
     // TODO fix bcrypt
-    // const salt = bcrypt.genSaltSync(10);
-    // const hash = bcrypt.hashSync(req.body.password, salt);
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(req.body.password, salt);
 
     const userData = {
       username: req.body.username,

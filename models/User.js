@@ -21,6 +21,12 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  trainers: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Trainer",
+    },
+  ],
 });
 
 const User = mongoose.model("User", UserSchema);

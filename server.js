@@ -4,6 +4,7 @@ const methodOverride = require("method-override");
 const port = process.env.PORT || 3800;
 const Pokedex = require("pokedex-promise-v2");
 const P = new Pokedex();
+const session = require("express-session");
 require("dotenv").config();
 const app = express();
 
@@ -16,6 +17,14 @@ const db = require("./models");
 app.set("view engine", "ejs");
 
 app.use(express.static("public"));
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
