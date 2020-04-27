@@ -9,6 +9,11 @@ const TrainerSchema = new mongoose.Schema({
   },
   aboutMe: String,
   pokemon: [String],
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
 });
 
 const Trainer = mongoose.model("Trainer", TrainerSchema);

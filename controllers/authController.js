@@ -24,7 +24,7 @@ router.post("/register", async (req, res) => {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
-      //   password: hash,
+      password: hash,
     };
     // console.log(UserData);
     await db.User.create(userData);
@@ -35,7 +35,6 @@ router.post("/register", async (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-  //   res.render("auth/login");
   res.render("auth/login");
 });
 
@@ -49,19 +48,25 @@ router.post("/login", async (req, res) => {
       });
     }
 
-    // TODO fix bcrypt
-    // const passwordsMatch = bcrypt.compareSync(
-    //   req.body.password,
-    //   User.password
-    // );
-    // if (password!=="1234") {
-    //   return res.render("auth/login", {
-    //     error: "Invalid Login Credentials",
-    //   });
-    // }
-    res.redirect("/trainer/index");
+    const passwordsMatch = bcrypt.compareSync(req.body.password, user.password);
+    if (!passwordsMatch) {
+      return res.render("auth/login", {
+        error: "Invalid Login Credentials",
+      });
+    }
+    req.session.currentUser = user._id;
+    res.redirect("/trainer");
   } catch (err) {
-    return res.send(err);
+    return console.log(err);
+  }
+});
+
+router.get("/logout", async (req, res) => {
+  try {
+    await req.session.destroy();
+    res.redirect("/");
+  } catch (err) {
+    return console.log(err);
   }
 });
 

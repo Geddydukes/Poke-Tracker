@@ -4,22 +4,32 @@ const router = express.Router();
 const db = require("../models/index");
 
 router.get("/", (req, res) => {
-  res.render("trainer/show");
+  if (!req.session.currentUser) {
+    // if no currentuser cookie no access
+    return res.redirect("/auth/login");
+  }
+  res.render("trainer/index");
 });
 
 router.get("/new", (req, res) => {
+  if (!req.session.currentUser) {
+    // if no currentuser cookie no access
+    return res.redirect("/auth/login");
+  }
   res.render("trainer/new");
 });
 
 router.post("/index", async (req, res) => {
+  if (!req.session.currentUser) {
+    // if no currentuser cookie no access
+    return res.redirect("/auth/login");
+  }
   const newTrainer = db.Trainer.create(req.body);
 });
 
 router.get("/:id", async (req, res) => {
   try {
-    const foundTrainer = await db.Trainer.findById(req.params.id).populate(
-      "pokemon"
-    );
+    const foundTrainer = await db.Trainer.findById(req.params.id);
     res.render("trainer/show", {
       trainer: foundTrainer,
     });
