@@ -1,3 +1,5 @@
+const Pokedex = require("pokedex-promise-v2");
+const P = new Pokedex();
 const express = require("express");
 const router = express.Router();
 
@@ -45,9 +47,6 @@ router.post("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const foundTrainer = await db.Trainer.findById(req.params.id);
-    if (req.session.currentUser !== foundTrainer.user) {
-      return res.redirect("/auth/login");
-    }
     res.render("trainer/show", {
       trainer: foundTrainer,
     });
@@ -72,12 +71,18 @@ router.get("/:id/edit", async (req, res) => {
 
 router.get("/:id/add", async (req, res) => {
   try {
+    const interval = {
+      limit: 793,
+      offset: 1,
+    };
+    const allPokemon = await P.getPokemonsList(interval);
     const foundTrainer = await db.Trainer.findById(req.params.id);
     // if (req.session.currentUser !== foundTrainer.user) {
     //   return res.redirect("/auth/login");
     // }
     res.render("trainer/add", {
       trainer: foundTrainer,
+      pokemon: allPokemon,
     });
   } catch (err) {
     return res.send(err);
@@ -88,13 +93,13 @@ router.put("/:id", async (req, res) => {
   // if (!req.session.currentUser) {
   //   return res.redirect("/auth/login");
   // }
-  console.log(req.body)
+  console.log(req);
   try {
     const foundTrainer = await db.Trainer.findByIdAndUpdate(
       req.params.id,
       req.body,
       { new: true },
-      res.redirect(`/trainers/${req.params.id}`)
+      res.redirect(`/trainer/${req.params.id}`)
     );
   } catch (err) {
     return res.send(err);

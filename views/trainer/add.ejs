@@ -15,45 +15,54 @@
   <%- include('../partials/_nav') %>
 
   <h1><u>pokemon index</u> </h1>
-  <%- include('../partials/_carosel') %>
+  
 
   <h2 style="color: #00AAE9;"><u>National Pokedex</u> </h2><br><br>
   <div class="pokemonContainer">
-    <% for(let i = 0; i < pokemon.results.length; i++) { %> <%
-      if(pokemon.results[i].name !== "mimikyu-disguised" || "minior-red-meteor")
-      %>
+    <% for(let i = 0; i < pokemon.results.length; i++) { %> 
+    <% if(pokemon.results[i].name !== "mimikyu-disguised" || "minior-red-meteor") { %>
     <a href="/pokemon/<%= pokemon.results[i].name %>">
       <li>
         <%= pokemon.results[i].name %>
         <img src="https://img.pokemondb.net/sprites/home/normal/<%= pokemon.results[i].name %>.png"
           alt="<%= pokemon.results[i].name %>" />
       </li>
-      <form action='/trainer/<%=trainer._id%>?_method=PUT' method="POST">
+      <form action="/trainer/<%=trainer._id%>?_method=PUT" method="POST">
         <div>
           <input
             type="checkbox"
-            id="<%=pokedex.pokemon_entries[i].pokemon_species.name%>"
-            name="<%=pokedex.pokemon_entries[i].pokemon_species.name%>"
+            id="id"
+            name="name"
+            value="<%=pokemon.results[i].name%>"
           />
-          <label for="<%=pokedex.pokemon_entries[i].pokemon_species.name%>"
-            >Add Pokemon?</label
-          >
+          <label for="<%=pokemon.results[i].name%>"
+            >Add Pokemon?
+            </label>
         </div>
 
     </a>
     <% } %>
+    <% } %>
+    <button type="submit">Submit Selections</button>
+    </form>
   </div>
 
   <!--This will be in a partial-->
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
 </body>
 
 </html>
