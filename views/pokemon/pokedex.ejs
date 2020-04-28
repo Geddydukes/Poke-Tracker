@@ -20,9 +20,9 @@
   <body>
     <%- include('../partials/_nav') %>
 
-    <h1><u><%= pokedex.name %> </u></h1>
+    <h1><u><%= pokedex.region.name %> </u></h1>
 
-    <h2 style="color: #00aae9;"><u><%= pokedex.name %> Pokedex</u></h2>
+    <h2 style="color: #00aae9;"><u><%= pokedex.region.name %> Pokedex</u></h2>
     <br /><br />
     <div class="pokemonContainer">
       <% for(let i = 0; i < pokedex.pokemon_entries.length; i++) { %> <%
@@ -39,7 +39,6 @@
       </a>
       <% } %>
     </div>
-
     <!--This will be in a partial-->
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
