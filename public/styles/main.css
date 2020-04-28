@@ -26,6 +26,7 @@ body {
   letter-spacing: 4px;
   word-spacing: 4px;
   margin-top: 10px;
+  margin-left: 10px;
 }
 .container {
   width: 350px;
@@ -113,7 +114,47 @@ a {
 }
 .show_container{
     margin-left: 10px;
+    padding-top: 10px;
 }
 .pokemon_name{
     text-transform: capitalize;
+    color: #00AAE9;
+    font-weight: 700;
+}
+.pokemon_stats{
+    margin: auto;
+    width: 50%;
+    border: 3px solid #CE17E8;
+    padding: 10px;
+    text-align: center;
+}
+.left_eye{
+    position: absolute;
+    height:45px;
+    width:180px;
+    border-radius: 90px / 45px;
+    background: #EDECEF;
+    transform: rotate(70deg);
+    margin-left: 30%;
+    margin-top: 15%;
+}
+.right_eye{
+    position: absolute;
+    height:45px;
+    width:180px;
+    border-radius: 90px / 45px;
+    background: #EDECEF;
+    transform: rotate(-70deg);
+    margin-left: 50%;
+    margin-top: 15%;
+}
+.rotom_head{
+    position: absolute;
+    height:350px;
+    width:350px;
+    border-radius: 350px;
+    background: transparent;
+    border: 3px solid black;
+    margin-left: 31%;
+    top: 2%;
 }
