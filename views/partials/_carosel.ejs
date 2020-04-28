@@ -7,14 +7,14 @@
         </ol>
         <div class="carousel-inner">
             <!--The forEach loop to render sprites should go in here-->
-            <div class="carousel-item active">
+            <div class="carousel-item active" data-interval="1000">
                 <!--This is the start of the img block-->
                 <img src="http://img.pokemondb.net/artwork/<%=
           pokemon.results[0].name %>.jpg" class="d-block w-10" alt="..." " />
         </div>
 
         <% for(let i = 1; i < pokemon.results.length; i++) { %>
-        <div class=" carousel-item">
+        <div class=" carousel-item" data-interval="1000">
                 <!--This is the start of the img block-->
                 <img src="http://img.pokemondb.net/artwork/<%= pokemon.results[i].name %>.jpg" class="d-block w-10"
                     alt="..." />
