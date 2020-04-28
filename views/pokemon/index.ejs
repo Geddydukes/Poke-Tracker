@@ -1,127 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/styles/main.css" />
 
-    <title>Document</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/styles/main.css" />
 
-  <body>
-    <%- include('../partials/_nav') %>
+  <title>Document</title>
+</head>
 
-    <h1>pokemon index</h1>
-    <div class="container">
-      <div
-        id="carouselExampleIndicators"
-        class="carousel slide"
-        data-ride="carousel"
-      >
-        <ol class="carousel-indicators">
-          <li
-            data-target="#carouselExampleIndicators"
-            data-slide-to="0"
-            class="active"
-          ></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <!--The forEach loop to render sprites should go in here-->
-          <div class="carousel-item active">
-            <!--This is the start of the img block-->
-            <img src="http://img.pokemondb.net/artwork/<%=
-            pokemon.results[0].name %>.jpg" class="d-block w-10" alt="..." " />
-          </div>
+<body>
+  <%- include('../partials/_nav') %>
 
-          <% for(let i = 1; i < pokemon.results.length; i++) { %>
-          <div class="carousel-item">
-            <!--This is the start of the img block-->
-            <img
-              src="http://img.pokemondb.net/artwork/<%= pokemon.results[i].name %>.jpg"
-              class="d-block w-10"
-              alt="..."
-            />
-          </div>
-          <% } %>
-          <!--This is the closing of the block-->
-          <!-- <div class="carousel-item">
-            <img
-              src="https://picsum.photos/350"
-              class="d-block w-10"
-              alt="..."
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://picsum.photos/350"
-              class="d-block w-10"
-              alt="..."
-            />
-          </div> -->
-        </div>
-        <a
-          class="carousel-control-prev"
-          href="#carouselExampleIndicators"
-          role="button"
-          data-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a
-          class="carousel-control-next"
-          href="#carouselExampleIndicators"
-          role="button"
-          data-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-    <h2>National Pokedex</h2>
-    <div class="pokemonContainer">
-      <% for(let i = 0; i < pokemon.results.length; i++) { %> <%
+  <h1><u>pokemon index</u> </h1>
+  <%- include('../partials/_carosel') %>
+
+  <h2 style="color: #00AAE9;"><u>National Pokedex</u> </h2><br><br>
+  <div class="pokemonContainer">
+    <% for(let i = 0; i < pokemon.results.length; i++) { %> <%
       if(pokemon.results[i].name !== "mimikyu-disguised" || "minior-red-meteor")
       %>
-      <a href="/pokemon/<%= pokemon.results[i].name %>">
-        <li>
-          <%= pokemon.results[i].name %>
-          <img
-            src="https://img.pokemondb.net/sprites/home/normal/<%= pokemon.results[i].name %>.png"
-            alt="<%= pokemon.results[i].name %>"
-          />
-        </li>
-      </a>
-      <% } %>
-    </div>
+    <a href="/pokemon/<%= pokemon.results[i].name %>">
+      <li>
+        <%= pokemon.results[i].name %>
+        <img src="https://img.pokemondb.net/sprites/home/normal/<%= pokemon.results[i].name %>.png"
+          alt="<%= pokemon.results[i].name %>" />
+      </li>
+    </a>
+    <% } %>
+  </div>
 
-    <!--This will be in a partial-->
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  <!--This will be in a partial-->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
