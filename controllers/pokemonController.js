@@ -10,11 +10,83 @@ router.get("/", async (req, res) => {
       offset: 1,
     };
     const allPokemon = await P.getPokemonsList(interval);
-    // const kantoPokemon = await P.getPokedexByName("kanto");
+    // const Pokemon = await P.getPokedexByName("");
     // console.log(allPokemon);
     // res.send(allPokemon);
+    // const pokedexList = await P.getPokedexsList();
+    // res.send(pokedexList);
     res.render("pokemon/index", {
       pokemon: allPokemon,
+    });
+  } catch (err) {
+    return res.send(err);
+  }
+});
+
+router.get("/kanto", async (req, res) => {
+  try {
+    const kantoPokemon = await P.getPokedexByName("kanto");
+    res.render("pokemon/pokedex", {
+      pokedex: kantoPokemon,
+    });
+  } catch (err) {
+    return res.send(err);
+  }
+});
+
+router.get("/johto", async (req, res) => {
+  try {
+    const Pokemon = await P.getPokedexByName("updated-johto");
+    res.render("pokemon/pokedex", {
+      pokedex: Pokemon,
+    });
+  } catch (err) {
+    return res.send(err);
+  }
+});
+
+router.get("/hoenn", async (req, res) => {
+  try {
+    const Pokemon = await P.getPokedexByName("updated-hoenn");
+    res.render("pokemon/pokedex", {
+      pokedex: Pokemon,
+    });
+  } catch (err) {
+    return res.send(err);
+  }
+});
+
+router.get("/sinnoh", async (req, res) => {
+  try {
+    const Pokemon = await P.getPokedexByName("extended-sinnoh");
+    res.render("pokemon/pokedex", {
+      pokedex: Pokemon,
+    });
+  } catch (err) {
+    return res.send(err);
+  }
+});
+
+router.get("/unova", async (req, res) => {
+  try {
+    const Pokemon = await P.getPokedexByName("updated-unova");
+    res.render("pokemon/pokedex", {
+      pokedex: Pokemon,
+    });
+  } catch (err) {
+    return res.send(err);
+  }
+});
+
+router.get("/kalos", async (req, res) => {
+  try {
+    const kalosCentralPokemon = await P.getPokedexByName("kalos-central");
+    const kalosCoastalPokemon = await P.getPokedexByName("kalos-coastal");
+    const kalosMountainPokemon = await P.getPokedexByName("kalos-mountain");
+    res.render("pokemon/kalos", {
+      kalosCentralPokedex: kalosCentralPokemon,
+      kalosCoastalPokedex: kalosCoastalPokemon,
+      kalosMountainPokedex: kalosMountainPokemon,
     });
   } catch (err) {
     return res.send(err);
