@@ -133,6 +133,7 @@ a {
     text-align: center;
 }
 .left_eye{
+  z-index: 1;
     position: absolute;
     height:45px;
     width:180px;
@@ -156,13 +157,14 @@ a {
     position: absolute;
     height:350px;
     width:350px;
-    border-radius: 350px;
+    border-radius: 300px;
     background: transparent;
     border: 3px solid black;
     margin-left: 31%;
-    top: 2%;
+    top:11%;
 }
 .left_slit{
+  
     position: absolute;
     border-top: 3px solid black;
     width: 47px;
@@ -210,15 +212,15 @@ a {
   display: flex;
   flex-direction: row;
   flex: right;
-  justify-content: space-evenly;
+  justify-content: center;
   width: 200px;
-  margin-left: 40%;
-  margin-top: 27%;
+  margin-left: 39%;
+  margin-top: 29%;
 }
 .rotom_mouth_left{
   position: relative;
   width:50px; 
-  height:50px; 
+  height:35px; 
   border:1px solid #000; 
   background: white;
   border-radius: 0 0 0 90px;
@@ -226,14 +228,15 @@ a {
 .rotom_mouth_center{
   position: relative;
   width:25px; 
-     height:50px; 
+     height:35px; 
      border:1px solid #000; 
      background:white;
+     padding-left: 20px;
 }
 .rotom_mouth_right{
   position: relative;
   width:50px; 
-  height:50px; 
+  height:35px; 
   border:1px solid #000; 
   background: white;
   border-radius: 0 0 90px 0;
