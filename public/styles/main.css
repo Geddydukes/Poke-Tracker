@@ -158,3 +158,19 @@ a {
     margin-left: 31%;
     top: 2%;
 }
+.left_slit{
+    position: absolute;
+    border-top: 3px solid black;
+    width: 47px;
+    transform: rotate(75deg);
+    left: 60px;
+    top: 21px; 
+}
+.right__slit{
+    position: absolute;
+    border-top: 3px solid black;
+    width: 47px;
+    transform: rotate(-75deg);
+    bottom: 20px;
+    right: 60px;
+}
