@@ -13,6 +13,11 @@
     <div class="trainer_card">
       <h1>show trainer</h1>
       <h4>&nbsp;<strong>Username:</strong> <%= trainer.trainerName %></h4>
+      <span style="font-size: small;"
+        ><a href="/trainer/<%= trainer._id%>/edit"
+          >&nbsp;|Edit Trainer|</a
+        ></span
+      >
       <h4>&nbsp;<strong>favPokemon:</strong><%= trainer.favPokemon %></h4>
       <h4>&nbsp;<strong>Go Team:</strong><%= trainer.goTeam %></h4>
       <h4>&nbsp;<strong>About Me:</strong><%= trainer.trainerName %></h4>
