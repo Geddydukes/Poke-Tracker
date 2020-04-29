@@ -13,16 +13,17 @@
 
 <body>
   <%- include('../partials/_nav') %>
-
+  <br><br><br>
   <h1><u>Kalos </u></h1>
 
   <h2 style="color: #00aae9;"><u>Kalos Pokedex</u></h2>
   <br /><br />
   <div class="pokemonContainer">
-    <h1><%= kalosCentralPokedex.name %></h1>
+    <h1 style="margin-left: 600px;"><%= kalosCentralPokedex.name %></h1>
     <% for(let i = 0; i < kalosCentralPokedex.pokemon_entries.length; i++) {
       %> <% if(kalosCentralPokedex.pokemon_entries[i].pokemon_species.name !==
       "mimikyu-disguised" || "minior-red-meteor") %>
+
     <a href="/pokemon/<%= kalosCentralPokedex.pokemon_entries[i].pokemon_species.name %>">
       <li>
         <%= kalosCentralPokedex.pokemon_entries[i].pokemon_species.name %>
@@ -34,7 +35,7 @@
     <% } %>
   </div>
   <div class="pokemonContainer">
-    <h1><%= kalosCoastalPokedex.name %></h1>
+    <h1 style="margin-left: 600px;"><%= kalosCoastalPokedex.name %></h1>
     <% for(let i = 0; i < kalosCoastalPokedex.pokemon_entries.length; i++) {
       %> <% if(kalosCoastalPokedex.pokemon_entries[i].pokemon_species.name !==
       "mimikyu-disguised" || "minior-red-meteor") %>
@@ -49,7 +50,7 @@
     <% } %>
   </div>
   <div class="pokemonContainer">
-    <h1><%= kalosMountainPokedex.name %></h1>
+    <h1 style="margin-left: 600px;"><%= kalosMountainPokedex.name %></h1>
     <% for(let i = 0; i < kalosMountainPokedex.pokemon_entries.length; i++) {
       %> <% if(kalosMountainPokedex.pokemon_entries[i].pokemon_species.name !==
       "mimikyu-disguised" || "minior-red-meteor") %>
@@ -64,16 +65,7 @@
     <% } %>
   </div>
 
-  <!--This will be in a partial-->
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
+
 </body>
 
 </html>
