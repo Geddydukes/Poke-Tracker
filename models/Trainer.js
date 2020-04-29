@@ -8,11 +8,7 @@ const TrainerSchema = new mongoose.Schema({
     type: String,
   },
   aboutMe: String,
-  pokemon: [
-    {
-      type: String,
-    },
-  ],
+  pokemon: Array,
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
