@@ -26,6 +26,13 @@
               src="https://img.pokemondb.net/sprites/home/normal/<%= trainer.pokemon[i] %>.png"
               alt="<%= trainer.pokemon[i] %>"
             />
+            <form
+              action="/trainer/<%=trainer._id%>?_method=DELETE"
+              method="POST"
+            >
+              <input type="checkbox" id="id" name="id" value="<%=[i]%>" />
+              <button type="submit">Delete</button>
+            </form>
           </li>
         </a>
       </p>
