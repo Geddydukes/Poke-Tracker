@@ -11,6 +11,7 @@
 <body>
   <%- include('../partials/_nav') %>
   <section class="login_container">
+    <div class="login__elements"></div>
     <h1>login</h1>
     <%= locals.error ? error : " " %>
     <form action="/auth/login" method="POST">
