@@ -86,6 +86,8 @@ router.get("/:id/pokemon/add", async (req, res) => {
     };
     const allPokemon = await P.getPokemonsList(interval);
     const foundTrainer = await db.Trainer.findById(req.params.id);
+    console.log(allPokemon);
+    console.log(foundTrainer);
     res.render("trainer/add", {
       trainer: foundTrainer,
       pokemon: allPokemon,
@@ -115,14 +117,14 @@ router.put("/:id/pokemon", async (req, res) => {
   console.log(req.body);
   try {
     const foundTrainer = await db.Trainer.findById(req.params.id);
-    if (req.body.name.length > 1) {
+    if (typeof req.body.name !== "string") {
       req.body.name.forEach((name) => {
         foundTrainer.pokemon.push(name);
       });
     } else {
       foundTrainer.pokemon.push(req.body.name);
     }
-    foundTrainer.save();
+    await foundTrainer.save();
     res.redirect(`/trainer/${req.params.id}`);
   } catch (err) {
     return console.log(err);
@@ -153,7 +155,7 @@ router.delete("/:id", async (req, res) => {
   try {
     const foundTrainer = await db.Trainer.findById(req.params.id);
     foundTrainer.pokemon.splice(parseInt(req.body.id), 1);
-    foundTrainer.save();
+    await foundTrainer.save();
     res.redirect(`/trainer/${req.params.id}`);
   } catch (err) {
     return console.log(err);
