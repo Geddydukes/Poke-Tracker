@@ -67,13 +67,6 @@ router.get("/:id", async (req, res) => {
 router.get("/:id/edit", async (req, res) => {
   try {
     const foundTrainer = await db.Trainer.findById(req.params.id);
-<<<<<<< HEAD
-    // if (req.session.currentUser !== foundTrainer.user) {
-    //   return res.redirect("/auth/login");
-    // }
-=======
-
->>>>>>> dev
     res.render("trainer/edit", {
       trainer: foundTrainer,
     });
@@ -131,13 +124,9 @@ router.put("/:id/pokemon", async (req, res) => {
     }
     foundTrainer.save();
     res.redirect(`/trainer/${req.params.id}`);
-<<<<<<< HEAD
-  } catch (err) { }
-=======
   } catch (err) {
     return console.log(err);
   }
->>>>>>> dev
 });
 
 router.delete("/", async (req, res) => {

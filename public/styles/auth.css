@@ -115,6 +115,8 @@ footer {
     top: 90vh;
 }
 .trainer_card{
-    margin-left: 10px;
-    width: auto;
+    left: 10px;
+}
+.trainer__elements{
+    margin-left: 30px;
 }
