@@ -99,10 +99,7 @@ footer {
   flex-direction: row;
   flex: left;
   justify-content: space-evenly;
-  width: 100vw; 
-}
-ul{
-  
+  width: 100vw;
 }
 a {
   text-decoration: none;
@@ -123,7 +120,7 @@ a {
 }
 .show_container{
     margin-left: 10px;
-    padding-top: 10px;
+    padding-top: 65px;
 }
 .pokemon_name{
     text-transform: capitalize;
