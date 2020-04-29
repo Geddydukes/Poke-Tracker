@@ -1,53 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/styles/main.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-  <link rel="stylesheet" href="/styles/main.css" />
+    <title>Document</title>
+  </head>
 
-  <title>Document</title>
-</head>
+  <body>
+    <%- include('../partials/_nav') %>
 
-<body>
-  <%- include('../partials/_nav') %>
+    <h1><u>pokemon index</u></h1>
 
-  <h1><u>pokemon index</u> </h1>
-  
-
-  <h2 style="color: #00AAE9;"><u>National Pokedex</u> </h2><br><br>
-  <div class="pokemonContainer">
-    <% for(let i = 0; i < pokemon.results.length; i++) { %> 
-    <% if(pokemon.results[i].name !== "mimikyu-disguised" || "minior-red-meteor") { %>
-    <a href="/pokemon/<%= pokemon.results[i].name %>">
+    <h2 style="color: #00aae9;"><u>National Pokedex</u></h2>
+    <br /><br />
+    <div class="pokemonContainer">
+      <% for(let i = 0; i < pokemon.results.length; i++) { %>
       <li>
         <%= pokemon.results[i].name %>
-        <img src="https://img.pokemondb.net/sprites/home/normal/<%= pokemon.results[i].name %>.png"
-          alt="<%= pokemon.results[i].name %>" />
+        <img
+          src="https://img.pokemondb.net/sprites/home/normal/<%= pokemon.results[i].name %>.png"
+          alt="<%= pokemon.results[i].name %>"
+        />
+        <form
+          action="/trainer/<%= trainer._id %>/pokemon?_method=PUT"
+          method="POST"
+        >
+          <div>
+            <input
+              type="checkbox"
+              id="id"
+              name="name"
+              value="<%=pokemon.results[i].name%>"
+            />
+            <label for="<%=pokemon.results[i].name%>">Add Pokemon? </label>
+          </div>
+          <button type="submit">Submit Selections</button>
+        </form>
       </li>
-      <form action="/trainer/<%=trainer._id%>?_method=PUT" method="POST">
-        <div>
-          <input
-            type="checkbox"
-            id="id"
-            name="name"
-            value="<%=pokemon.results[i].name%>"
-          />
-          <label for="<%=pokemon.results[i].name%>"
-            >Add Pokemon?
-            </label>
-        </div>
+      <% } %>
+    </div>
 
-    </a>
-    <% } %>
-    <% } %>
-    <button type="submit">Submit Selections</button>
-    </form>
-  </div>
-
-  <!--This will be in a partial-->
+    <!-- This will be in a partial -->
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -63,6 +67,5 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
-</body>
-
+  </body>
 </html>

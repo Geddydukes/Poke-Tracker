@@ -11,7 +11,6 @@ const TrainerSchema = new mongoose.Schema({
   pokemon: [
     {
       type: String,
-      unique: true,
     },
   ],
   user: {
