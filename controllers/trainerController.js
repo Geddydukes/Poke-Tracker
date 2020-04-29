@@ -66,8 +66,10 @@ router.get("/:id", async (req, res) => {
 
 router.get("/:id/edit", async (req, res) => {
   try {
+    if (!req.session.currentUser) {
+      return res.redirect("/auth/login");
+    }
     const foundTrainer = await db.Trainer.findById(req.params.id);
-
     res.render("trainer/edit", {
       trainer: foundTrainer,
     });
@@ -84,9 +86,6 @@ router.get("/:id/pokemon/add", async (req, res) => {
     };
     const allPokemon = await P.getPokemonsList(interval);
     const foundTrainer = await db.Trainer.findById(req.params.id);
-    // if (req.session.currentUser !== foundTrainer.user) {
-    //   return res.redirect("/auth/login");
-    // }
     res.render("trainer/add", {
       trainer: foundTrainer,
       pokemon: allPokemon,
@@ -131,9 +130,9 @@ router.put("/:id/pokemon", async (req, res) => {
 });
 
 router.delete("/", async (req, res) => {
-  // if (!req.session.currentUser) {
-  //   return res.redirect("/auth/login");
-  // }
+  if (!req.session.currentUser) {
+    return res.redirect("/auth/login");
+  }
   console.log(req.body);
   try {
     const deletedTrainer = await db.Trainer.findByIdAndDelete(req.body.id);
@@ -147,9 +146,9 @@ router.delete("/", async (req, res) => {
 });
 
 router.delete("/:id", async (req, res) => {
-  // if (!req.session.currentUser) {
-  //   return res.redirect("/auth/login");
-  // }
+  if (!req.session.currentUser) {
+    return res.redirect("/auth/login");
+  }
   console.log(req.body);
   try {
     const foundTrainer = await db.Trainer.findById(req.params.id);
