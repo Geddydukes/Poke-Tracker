@@ -1,23 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/auth.css">
+    <link rel="stylesheet" href="/styles/auth.css" />
     <title>User Index</title>
-</head>
+  </head>
 
-<body>
-    <h1>Welcome Back
-        <!-- EJS tag for Username/Output-->
+  <body>
+    <h1>
+      Welcome Back
+      <!-- EJS tag for Username/Output-->
     </h1>
-    <p>From here you can <a href="/trainer/new">Make a New Trainer</a>. This will let you
-        keep track of multiple collections from one account!</p>
+    <p>
+      From here you can <a href="/trainer/new">Make a New Trainer</a>. This will
+      let you keep track of multiple collections from one account!
+    </p>
     <!--link to trainer-->
     <ul>
-        <!-- Add for loop for trainers to populate-->
+      <% for( let i = 0; i < user.trainers.length; i++ ) { %>
+      <li>
+        <a href="trainer/<%=user.trainers[i]._id%>"
+          ><%= user.trainers[i].trainerName %></a
+        >
+        <img
+          src="https://img.pokemondb.net/sprites/home/normal/<%= (user.trainers[i].favPokemon.toLowerCase()) %>.png"
+          alt="<%= user.trainers[i].favPokemon %>"
+        />
+      </li>
+      <% } %>
     </ul>
-</body>
+  </body>
 
-<%- include('../partials/_footer') %>
+  <%- include('../partials/_footer') %>
+</html>

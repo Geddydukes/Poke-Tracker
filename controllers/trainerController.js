@@ -5,11 +5,20 @@ const router = express.Router();
 
 const db = require("../models/index");
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   if (!req.session.currentUser) {
     return res.redirect("/auth/login");
   }
-  res.render("trainer/index");
+  try {
+    const user = req.session.currentUser;
+    const currentUser = await db.User.findById(user).populate("trainers");
+    console.log(currentUser);
+    res.render("trainer/index", {
+      user: currentUser,
+    });
+  } catch (err) {
+    return res.send(err);
+  }
 });
 
 router.get("/new", (req, res) => {
@@ -69,7 +78,7 @@ router.get("/:id/edit", async (req, res) => {
   }
 });
 
-router.get("/:id/add", async (req, res) => {
+router.get("/:id/pokemon/add", async (req, res) => {
   try {
     const interval = {
       limit: 793,
@@ -90,10 +99,9 @@ router.get("/:id/add", async (req, res) => {
 });
 
 router.put("/:id", async (req, res) => {
-  // if (!req.session.currentUser) {
-  //   return res.redirect("/auth/login");
-  // }
-  console.log(req);
+  if (!req.session.currentUser) {
+    return res.redirect("/auth/login");
+  }
   try {
     const foundTrainer = await db.Trainer.findByIdAndUpdate(
       req.params.id,
@@ -104,6 +112,15 @@ router.put("/:id", async (req, res) => {
   } catch (err) {
     return res.send(err);
   }
+});
+
+router.put("/:id/pokemon", async (req, res) => {
+  try {
+    const foundTrainer = await db.Trainer.findById(req.params.id);
+    foundTrainer.pokemon.push(req.body.name);
+    foundTrainer.save();
+    res.redirect(`/trainer/${req.params.id}`);
+  } catch (err) {}
 });
 
 router.delete("/:id", async (req, res) => {
