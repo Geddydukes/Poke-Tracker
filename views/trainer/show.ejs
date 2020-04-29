@@ -17,7 +17,8 @@
     <h4>&nbsp;<strong>Go Team:</strong><%= trainer.goTeam %></h4>
     <h4>&nbsp;<strong>About Me:</strong><%= trainer.trainerName %></h4>
     <h4>
-      &nbsp;<strong>Pokemon:</strong>
+      &nbsp;<strong>Pokemon:</strong><span style="font-size: small;"><a href="/trainer/<%= trainer._id%>/pokemon/add">|
+          Add Pokemon |</a></span>
     </h4>
     <% for( let i = 0; i < trainer.pokemon.length; i++ ) { %>
     <p>
