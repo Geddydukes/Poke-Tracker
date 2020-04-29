@@ -67,10 +67,8 @@ router.get("/:id", async (req, res) => {
 router.get("/:id/edit", async (req, res) => {
   try {
     const foundTrainer = await db.Trainer.findById(req.params.id);
-    if (req.session.currentUser !== foundTrainer.user) {
-      return res.redirect("/auth/login");
-    }
-    res.render("trainer/edits", {
+
+    res.render("trainer/edit", {
       trainer: foundTrainer,
     });
   } catch (err) {
@@ -115,25 +113,51 @@ router.put("/:id", async (req, res) => {
 });
 
 router.put("/:id/pokemon", async (req, res) => {
+  console.log(req.body);
   try {
     const foundTrainer = await db.Trainer.findById(req.params.id);
-    foundTrainer.pokemon.push(req.body.name);
+    if (req.body.name.length > 1) {
+      req.body.name.forEach((name) => {
+        foundTrainer.pokemon.push(name);
+      });
+    } else {
+      foundTrainer.pokemon.push(req.body.name);
+    }
     foundTrainer.save();
     res.redirect(`/trainer/${req.params.id}`);
-  } catch (err) {}
+  } catch (err) {
+    return console.log(err);
+  }
+});
+
+router.delete("/", async (req, res) => {
+  // if (!req.session.currentUser) {
+  //   return res.redirect("/auth/login");
+  // }
+  console.log(req.body);
+  try {
+    const deletedTrainer = await db.Trainer.findByIdAndDelete(req.body.id);
+    const foundUser = await db.User.findById(req.session.currentUser);
+    foundUser.trainers.remove(deletedTrainer);
+    foundUser.save();
+    res.redirect("/trainer");
+  } catch (err) {
+    return console.log(err);
+  }
 });
 
 router.delete("/:id", async (req, res) => {
-  if (!req.session.currentUser) {
-    return res.redirect("/auth/login");
-  }
+  // if (!req.session.currentUser) {
+  //   return res.redirect("/auth/login");
+  // }
+  console.log(req.body);
   try {
-    const deletedTrainer = await db.Trainer.findByIdAndDelete(req.params.id);
-    const foundUser = await db.User.findById(deletedTrainer.user);
-    foundUser.trainers.remove(deletedTrainer);
-    foundUser.save();
-  } catch (error) {
-    return res.send(err);
+    const foundTrainer = await db.Trainer.findById(req.params.id);
+    foundTrainer.pokemon.splice(parseInt(req.body.id), 1);
+    foundTrainer.save();
+    res.redirect(`/trainer/${req.params.id}`);
+  } catch (err) {
+    return console.log(err);
   }
 });
 
