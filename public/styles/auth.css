@@ -78,10 +78,10 @@ li {
     text-decoration: none;
     transition-duration: 0.5s;
   }
-li:hover {
-    background-color: #d44338;
+  li:hover {
+    background: #C4D44C;
     cursor: pointer;
-    
+    opacity: .7;
   }
   
   ul li ul {
@@ -99,7 +99,7 @@ li:hover {
   ul li:hover > ul,
   ul li:focus-within > ul, /* this is the line we add */
   ul li ul:hover {
-    background-color: #d44338;
+    background-color: #C4D44C;
   visibility: visible;
   opacity: 1;
   display: block;
@@ -113,4 +113,7 @@ li:hover {
 footer {
     position: absolute;
     top: 90vh;
+}
+.trainer_card{
+    margin-left: 10px;
 }
