@@ -150,7 +150,7 @@ router.delete("/:id", async (req, res) => {
   // if (!req.session.currentUser) {
   //   return res.redirect("/auth/login");
   // }
-  console.log(req);
+  console.log(req.body);
   try {
     const foundTrainer = await db.Trainer.findById(req.params.id);
     foundTrainer.pokemon.splice(parseInt(req.body.id), 1);
