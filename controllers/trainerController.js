@@ -67,10 +67,10 @@ router.get("/:id", async (req, res) => {
 router.get("/:id/edit", async (req, res) => {
   try {
     const foundTrainer = await db.Trainer.findById(req.params.id);
-    if (req.session.currentUser !== foundTrainer.user) {
-      return res.redirect("/auth/login");
-    }
-    res.render("trainer/edits", {
+    // if (req.session.currentUser !== foundTrainer.user) {
+    //   return res.redirect("/auth/login");
+    // }
+    res.render("trainer/edit", {
       trainer: foundTrainer,
     });
   } catch (err) {
@@ -120,7 +120,7 @@ router.put("/:id/pokemon", async (req, res) => {
     foundTrainer.pokemon.push(req.body.name);
     foundTrainer.save();
     res.redirect(`/trainer/${req.params.id}`);
-  } catch (err) {}
+  } catch (err) { }
 });
 
 router.delete("/:id", async (req, res) => {

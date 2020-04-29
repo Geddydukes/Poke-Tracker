@@ -4,57 +4,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles/main.css" />
   <title>Document</title>
 </head>
 
 <body>
-  <h1>trainer - edit</h1>
-  <!--Replace defult value with the envoked obj:keyvaule-->
-  <div class="trainers_card">
-    <form action="/trainer/edit/<%= trainer._id%>?_method=PUT " method="POST">
-      <div>>
-        <label for="username">Username</label><br />
-        <input type="text" id="username" name="username" value="<%=trainer.username%>" />
-      </div>
-      <div>
-        <label for="firstName">First Name</label><br />
-        <input type="text" id="firstName" name="firstName" value="<%=trainer.firstName%>" />
-      </div>
-      <div>
-        <label for="lastName">First Name</label><br />
-        <input type="text" id="lastName" name="lastName" value="<%=trainer.lastName%>" />
-      </div>
-      <div>
-        <label for="favPokemon">Favorite Pokemon </label><br />
-        <input type="text" id="favPokemon" name="favPokemon" value="<%=trainer.favPokemon%>" />
-      </div>
-      <div>
-        <label for="goTeam">Pokemon Go Team </label><br />
-        <select id="goTeam" name="goTeam">
-          <option value="<%= trainer.goTeam%>" disabled>You picked last time:<%= trainer.goTeam%></option>
-          <option value="Valor">Valor</option>
-          <option value="Mystic">Mystic</option>
-          <option value="Instinct">Instinct</option>
-          <option value="n/a">N/A</option>
-        </select>
-      </div>
-      <div>
-        <label for="email">Email</label><br />
-        <input type="email" id="name" name="name" value="<%= trainer.email%>" />
-      </div>
-      <div>
-        <label for="password">Password</label><br />
-        <input type="password" id="password" name="passsword" value="<%= trainer.password%>" />
-      </div>
-      <div>
-        <label for="aboutMe">About Me</label><br />
-        <textarea name="aboutMe" id="aboutMe" value="<%= trainer.aboutMe%>" cols="50" rows="10"></textarea>
-      </div>
-      <input type="submit" value="Submit" />
-    </form>
-    <!-- submit button-->
+  <%- include('../partials/_nav') %>
+  <div class="edit_container">
+    <br><br><br><br>
+    <h1 style="color: #00AAE9; font-size: x-large;"><u> Trainer - Edit Page </u></h1>
+    <!--Replace defult value with the envoked obj:keyvaule-->
+    <div class="trainers_card">
+      <form action="/trainer/<%= trainer._id%>?_method=PUT " method="POST">
+        <div>
+          <label for="trainerName">Trainer Name</label><br />
+          <input type="text" id="trainerName" name="trainerName" value="<%=trainer.trainerName%>" />
+        </div>
+        <div>
+          <label for="favPokemon">Favorite Pokemon </label><br />
+          <input type="text" id="favPokemon" name="favPokemon" value="<%=trainer.favPokemon%>" />
+        </div>
+        <div>
+          <label for="goTeam">Pokemon Go Team </label><br />
+          <select id="goTeam" name="goTeam">
+            <option value="<%= trainer.goTeam%>" disabled>You picked last time:<%= trainer.goTeam%></option>
+            <option value="Valor">Valor</option>
+            <option value="Mystic">Mystic</option>
+            <option value="Instinct">Instinct</option>
+            <option value="n/a">N/A</option>
+          </select>
+        </div>
+        <div>
+          <label for="aboutMe">About Me</label><br />
+          <textarea name="aboutMe" id="aboutMe" value="<%= trainer.aboutMe%>" cols="50" rows="10"></textarea>
+        </div>
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
   </div>
-
 </body>
 
 </html>
