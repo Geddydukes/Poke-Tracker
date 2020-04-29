@@ -93,11 +93,16 @@ footer {
   top: 90vh;
 }
 .nav_ul {
+  position: absolute;
   display: flex;
   list-style: none;
   flex-direction: row;
   flex: left;
   justify-content: space-evenly;
+  width: 100vw; 
+}
+ul{
+  
 }
 a {
   text-decoration: none;
