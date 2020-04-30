@@ -11,11 +11,9 @@ router.get("/register", (req, res) => {
 router.post("/register", async (req, res) => {
   try {
     const user = await db.User.findOne({ username: req.body.username });
-    console.log(req.body);
     if (user) {
       return res.send("<h1>Account exists<h1>");
     }
-    // TODO fix bcrypt
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, salt);
 
@@ -26,7 +24,6 @@ router.post("/register", async (req, res) => {
       email: req.body.email,
       password: hash,
     };
-    // console.log(UserData);
     await db.User.create(userData);
     res.redirect("/auth/login");
   } catch (err) {
@@ -40,7 +37,6 @@ router.get("/login", (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
-    console.log(req.body);
     const user = await db.User.findOne({ username: req.body.username });
     if (!user) {
       return res.render("auth/login", {
