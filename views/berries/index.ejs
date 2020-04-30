@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>berries</h1>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles/catalog.css" />
+  <title>Barries Index</title>
+</head>
+
+<body>
+  <%- include('../partials/_nav') %>
+
+  <div class="berries_container">
+    <h1 style="font-size: xx-large;">Berries</h1>
     <% for(let i = 0; i < berries.results.length; i++) { %>
     <a href="/berries/<%= berries.results[i].name %>">
       <li>
@@ -14,5 +20,7 @@
       </li>
     </a>
     <% } %>
-  </body>
+  </div>
+</body>
+
 </html>
