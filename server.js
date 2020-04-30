@@ -5,6 +5,7 @@ const port = process.env.PORT || 3800;
 const Pokedex = require("pokedex-promise-v2");
 const P = new Pokedex();
 const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 require("dotenv").config();
 const app = express();
 
@@ -22,6 +23,9 @@ app.use(express.static("public"));
 
 app.use(
   session({
+    store: new MongoStore({
+      url: process.env.MONGODB_URI || "mongodb://localhost:27017/poke-tracker",
+    }),
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
