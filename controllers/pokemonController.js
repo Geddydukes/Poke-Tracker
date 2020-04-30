@@ -70,7 +70,6 @@ router.get("/sinnoh", async (req, res) => {
 router.get("/unova", async (req, res) => {
   try {
     const Pokemon = await P.getPokedexByName("updated-unova");
-    // res.send(Pokemon);
     res.render("pokemon/pokedex", {
       pokedex: Pokemon,
     });
@@ -97,12 +96,10 @@ router.get("/kalos", async (req, res) => {
 router.get("/:name", async (req, res) => {
   try {
     const foundPokemon = await P.getPokemonByName(`${req.params.name}`);
-    // console.log(foundPokemon);
     res.render("pokemon/show", {
       pokemon: foundPokemon,
     });
   } catch (err) {
-    // console.log(err);
     return res.send(err);
   }
 });

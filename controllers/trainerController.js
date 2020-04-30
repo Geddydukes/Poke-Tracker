@@ -12,7 +12,6 @@ router.get("/", async (req, res) => {
   try {
     const user = req.session.currentUser;
     const currentUser = await db.User.findById(user).populate("trainers");
-    console.log(currentUser);
     res.render("trainer/index", {
       user: currentUser,
     });
@@ -42,8 +41,6 @@ router.post("/", async (req, res) => {
     };
     const newTrainer = await db.Trainer.create(trainerData);
     const foundUser = await db.User.findById(req.session.currentUser);
-    console.log(newTrainer);
-    console.log(foundUser);
     await foundUser.trainers.push(newTrainer._id);
     foundUser.save();
 
@@ -114,7 +111,6 @@ router.put("/:id", async (req, res) => {
 });
 
 router.put("/:id/pokemon", async (req, res) => {
-  console.log(req.body);
   try {
     const foundTrainer = await db.Trainer.findById(req.params.id);
     if (typeof req.body.name !== "string") {
@@ -135,7 +131,6 @@ router.delete("/", async (req, res) => {
   if (!req.session.currentUser) {
     return res.redirect("/auth/login");
   }
-  console.log(req.body);
   try {
     const deletedTrainer = await db.Trainer.findByIdAndDelete(req.body.id);
     const foundUser = await db.User.findById(req.session.currentUser);
@@ -151,7 +146,6 @@ router.delete("/:id", async (req, res) => {
   if (!req.session.currentUser) {
     return res.redirect("/auth/login");
   }
-  console.log(req.body);
   try {
     const foundTrainer = await db.Trainer.findById(req.params.id);
     foundTrainer.pokemon.splice(parseInt(req.body.id), 1);
