@@ -294,3 +294,9 @@ width: 100%;
 .edit_container{
   
 }
+.sticky_container{
+  position: sticky;
+  position: -webkit-sticky;
+  bottom: 600px;
+  float: right;
+}
