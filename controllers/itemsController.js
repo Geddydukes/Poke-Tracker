@@ -7,9 +7,9 @@ const db = require("../models/index");
 
 router.get("/", async (req, res) => {
   try {
-    const berries = await P.getBerriesList();
-    res.render("berries/index", {
-      berries: berries,
+    const items = await P.getItemsList();
+    res.render("items/index", {
+      items: items,
     });
   } catch (err) {
     return res.send(err);
@@ -18,10 +18,10 @@ router.get("/", async (req, res) => {
 
 router.get("/:name", async (req, res) => {
   try {
-    const berry = await P.getBerryByName(req.params.name);
-    // const workingBerry = berry.name.toUpperCase().splice(0,1)
-    res.render("berries/show", {
-      berry: berry,
+    const item = await P.getItemByName(req.params.name);
+    // res.send(item);
+    res.render("items/show", {
+      item: item,
     });
   } catch (err) {
     return res.send(err);

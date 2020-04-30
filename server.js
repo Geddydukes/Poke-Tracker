@@ -12,6 +12,7 @@ const authController = require("./controllers/authController");
 const trainerController = require("./controllers/trainerController");
 const pokemonController = require("./controllers/pokemonController");
 const berriesController = require("./controllers/berriesController");
+const itemsController = require("./controllers/itemsController");
 
 const db = require("./models");
 
@@ -39,6 +40,7 @@ app.use("/auth", authController);
 app.use("/trainer", trainerController);
 app.use("/pokemon", pokemonController);
 app.use("/berries", berriesController);
+app.use("/items", itemsController);
 
 app.listen(port, () =>
   console.log(`Hey pokedex server is on at port: ${port} `)

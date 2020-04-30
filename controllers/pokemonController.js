@@ -10,11 +10,6 @@ router.get("/", async (req, res) => {
       offset: 1,
     };
     const allPokemon = await P.getPokemonsList(interval);
-    // const Pokemon = await P.getPokedexByName("");
-    // console.log(allPokemon);
-    // res.send(allPokemon);
-    // const pokedexList = await P.getPokedexsList();
-    // res.send(pokedexList);
     res.render("pokemon/index", {
       pokemon: allPokemon,
     });
