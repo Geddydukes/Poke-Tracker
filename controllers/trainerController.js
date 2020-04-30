@@ -92,8 +92,6 @@ router.get("/:id/pokemon/add", async (req, res) => {
     };
     const allPokemon = await P.getPokemonsList(interval);
     const foundTrainer = await db.Trainer.findById(req.params.id);
-    console.log(allPokemon);
-    console.log(foundTrainer);
     res.render("trainer/add", {
       trainer: foundTrainer,
       pokemon: allPokemon,
