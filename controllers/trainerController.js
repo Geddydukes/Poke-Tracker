@@ -16,7 +16,10 @@ router.get("/", async (req, res) => {
       user: currentUser,
     });
   } catch (err) {
-    return res.send(err);
+    console.log(err);
+    return res.render("auth/login", {
+      error: "You are not logged in.",
+    });
   }
 });
 
@@ -57,7 +60,10 @@ router.get("/:id", async (req, res) => {
       trainer: foundTrainer,
     });
   } catch (err) {
-    return res.send(err);
+    console.log(err);
+    return res.render("auth/login", {
+      error: "You are not logged in.",
+    });
   }
 });
 
@@ -71,7 +77,10 @@ router.get("/:id/edit", async (req, res) => {
       trainer: foundTrainer,
     });
   } catch (err) {
-    return res.send(err);
+    console.log(err);
+    return res.render("auth/login", {
+      error: "You are not logged in.",
+    });
   }
 });
 
@@ -90,7 +99,10 @@ router.get("/:id/pokemon/add", async (req, res) => {
       pokemon: allPokemon,
     });
   } catch (err) {
-    return res.send(err);
+    console.log(err);
+    return res.render("auth/login", {
+      error: "Please try again later",
+    });
   }
 });
 
@@ -123,7 +135,9 @@ router.put("/:id/pokemon", async (req, res) => {
     await foundTrainer.save();
     res.redirect(`/trainer/${req.params.id}`);
   } catch (err) {
-    return console.log(err);
+    return res.render("auth/login", {
+      error: "Please try again later",
+    });
   }
 });
 
@@ -138,7 +152,9 @@ router.delete("/", async (req, res) => {
     foundUser.save();
     res.redirect("/trainer");
   } catch (err) {
-    return console.log(err);
+    return res.render("auth/login", {
+      error: "Please try again later",
+    });
   }
 });
 
@@ -152,7 +168,9 @@ router.delete("/:id", async (req, res) => {
     await foundTrainer.save();
     res.redirect(`/trainer/${req.params.id}`);
   } catch (err) {
-    return console.log(err);
+    return res.render("auth/login", {
+      error: "Please try again later",
+    });
   }
 });
 

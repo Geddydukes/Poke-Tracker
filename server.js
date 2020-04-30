@@ -11,6 +11,7 @@ const app = express();
 const authController = require("./controllers/authController");
 const trainerController = require("./controllers/trainerController");
 const pokemonController = require("./controllers/pokemonController");
+const berriesController = require("./controllers/berriesController");
 
 const db = require("./models");
 
@@ -26,7 +27,7 @@ app.use(
   })
 );
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride("_method"));
 
@@ -37,6 +38,7 @@ app.get("/", (req, res) => {
 app.use("/auth", authController);
 app.use("/trainer", trainerController);
 app.use("/pokemon", pokemonController);
+app.use("/berries", berriesController);
 
 app.listen(port, () =>
   console.log(`Hey pokedex server is on at port: ${port} `)
