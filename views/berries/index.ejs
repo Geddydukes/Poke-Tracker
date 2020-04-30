@@ -10,9 +10,9 @@
 
 <body>
   <%- include('../partials/_nav') %>
-
+  <br>
   <div class="berries_container">
-    <h1 style="font-size: xx-large;">Berries</h1>
+    <h1 style="font-size: xx-large;color: #ffde00;">Berries</h1>
     <% for(let i = 0; i < berries.results.length; i++) { %>
     <a href="/berries/<%= berries.results[i].name %>">
       <li>
