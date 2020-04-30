@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>berries</h1>
+    <% for(let i = 0; i < berries.results.length; i++) { %>
+    <a href="/berries/<%= berries.results[i].name %>">
+      <li>
+        <%= berries.results[i].name %>
+      </li>
+    </a>
+    <% } %>
+  </body>
+</html>
