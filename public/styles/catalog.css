@@ -32,6 +32,11 @@
       width: 800px;
       margin: auto;
   }
+  .berry_show{
+    width: 300px;
+    margin: auto;
+    text-align: left;
+}
   .nav_ul{
     display: flex;
     list-style: none;

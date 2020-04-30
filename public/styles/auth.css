@@ -35,9 +35,9 @@ h1{
     margin-left: -10px;
 }
 .login_container{
-    margin-left: 600px;
-    margin-top: 210px;
     width: 270px;
+    margin:auto;
+    
     
 }
 .login__elements{
@@ -45,7 +45,7 @@ h1{
 }
 .regContainer{
     position: relative;
-    margin-left: 450px;
+  margin: auto;
     margin-top: 60px;
     width: 375px; height: 430px;
     border: 3px solid #CE17E8;
