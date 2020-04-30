@@ -66,6 +66,9 @@ router.get("/:id", async (req, res) => {
 
 router.get("/:id/edit", async (req, res) => {
   try {
+    if (!req.session.currentUser) {
+      return res.redirect("/auth/login");
+    }
     const foundTrainer = await db.Trainer.findById(req.params.id);
     res.render("trainer/edit", {
       trainer: foundTrainer,
@@ -83,9 +86,8 @@ router.get("/:id/pokemon/add", async (req, res) => {
     };
     const allPokemon = await P.getPokemonsList(interval);
     const foundTrainer = await db.Trainer.findById(req.params.id);
-    // if (req.session.currentUser !== foundTrainer.user) {
-    //   return res.redirect("/auth/login");
-    // }
+    console.log(allPokemon);
+    console.log(foundTrainer);
     res.render("trainer/add", {
       trainer: foundTrainer,
       pokemon: allPokemon,
@@ -115,14 +117,14 @@ router.put("/:id/pokemon", async (req, res) => {
   console.log(req.body);
   try {
     const foundTrainer = await db.Trainer.findById(req.params.id);
-    if (req.body.name.length > 1) {
+    if (typeof req.body.name !== "string") {
       req.body.name.forEach((name) => {
         foundTrainer.pokemon.push(name);
       });
     } else {
       foundTrainer.pokemon.push(req.body.name);
     }
-    foundTrainer.save();
+    await foundTrainer.save();
     res.redirect(`/trainer/${req.params.id}`);
   } catch (err) {
     return console.log(err);
@@ -130,9 +132,9 @@ router.put("/:id/pokemon", async (req, res) => {
 });
 
 router.delete("/", async (req, res) => {
-  // if (!req.session.currentUser) {
-  //   return res.redirect("/auth/login");
-  // }
+  if (!req.session.currentUser) {
+    return res.redirect("/auth/login");
+  }
   console.log(req.body);
   try {
     const deletedTrainer = await db.Trainer.findByIdAndDelete(req.body.id);
@@ -146,14 +148,14 @@ router.delete("/", async (req, res) => {
 });
 
 router.delete("/:id", async (req, res) => {
-  // if (!req.session.currentUser) {
-  //   return res.redirect("/auth/login");
-  // }
+  if (!req.session.currentUser) {
+    return res.redirect("/auth/login");
+  }
   console.log(req.body);
   try {
     const foundTrainer = await db.Trainer.findById(req.params.id);
     foundTrainer.pokemon.splice(parseInt(req.body.id), 1);
-    foundTrainer.save();
+    await foundTrainer.save();
     res.redirect(`/trainer/${req.params.id}`);
   } catch (err) {
     return console.log(err);
