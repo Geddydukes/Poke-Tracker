@@ -19,6 +19,7 @@ router.get("/", async (req, res) => {
 router.get("/:name", async (req, res) => {
   try {
     const berry = await P.getBerryByName(req.params.name);
+    // const workingBerry = berry.name.toUpperCase().splice(0,1)
     res.render("berries/show", {
       berry: berry,
     });
