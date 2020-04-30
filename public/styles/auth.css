@@ -19,8 +19,7 @@
     format("svg");
 }
 body{
-    background: rgb(59,76,202);
-    background: linear-gradient(0deg, rgba(59,76,202,1) 0%, rgba(91,104,208,1) 48%);
+    background-color: #3b4cca;
     font-family: 'Pokemon';
     letter-spacing: 4px;
     word-spacing: 4px;
