@@ -61,13 +61,13 @@ li {
     transition-duration: 0.5s;
   }
 li:hover {
-  background: #C4D44C;
+  background: #d44338;
   cursor: pointer;
   opacity: .7;
 }
 
 ul li ul {
-  background: #C4D44C;
+  background: #d44338;
   visibility: hidden;
 opacity: 0;
 min-width: 5rem;
