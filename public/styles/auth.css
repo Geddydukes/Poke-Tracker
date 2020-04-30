@@ -19,8 +19,7 @@
     format("svg");
 }
 body{
-    background: rgb(59,76,202);
-    background: linear-gradient(0deg, rgba(59,76,202,1) 0%, rgba(91,104,208,1) 48%);
+    background-color: #3b4cca;
     font-family: 'Pokemon';
     letter-spacing: 4px;
     word-spacing: 4px;
@@ -46,13 +45,13 @@ h1{
 }
 .regContainer{
     position: relative;
-    margin-left: 600px;
+    margin-left: 450px;
     margin-top: 60px;
-    width: 270px; height: 430px;
+    width: 375px; height: 430px;
     border: 3px solid #CE17E8;
 }
 .reg__elements{
-    padding-left: 20px;
+    margin-left: 20px;
 }
 #reg__submit{
     margin-left: 20px;
@@ -71,7 +70,8 @@ a{
   
 li {
   color: #fff;
-    
+  position: absolute;
+    z-index: 2;
     display: block;
     float: left;
     padding: 1rem;
@@ -79,38 +79,37 @@ li {
     text-decoration: none;
     transition-duration: 0.5s;
   }
-  li:hover {
-    background: #C4D44C;
-    cursor: pointer;
-    opacity: .7;
-  }
-  
-  ul li ul {
-    
-    visibility: hidden;
-  opacity: 0;
-  min-width: 5rem;
-    position: absolute;
-  transition: all 0.5s ease;
-  margin-top: 1rem;
-    left: 0;
-  display: none;
-  }
-  
-  ul li:hover > ul,
-  ul li:focus-within > ul, /* this is the line we add */
-  ul li ul:hover {
-    background-color: #C4D44C;
-  visibility: visible;
-  opacity: 1;
-  display: block;
-  
-  }
-  
-  ul li ul li {
-    clear: both;
-  width: 100%;
-  }
+li:hover {
+  background: #C4D44C;
+  cursor: pointer;
+  opacity: .7;
+}
+
+ul li ul {
+  background: #C4D44C;
+  visibility: hidden;
+opacity: 0;
+min-width: 5rem;
+  position: absolute;
+transition: all 0.5s ease;
+margin-top: 1rem;
+  left: 0;
+display: none;
+
+}
+
+ul li:hover > ul,
+ul li:focus-within > ul, /* this is the line we add */
+ul li ul:hover {
+visibility: visible;
+opacity: 1;
+display: block;
+}
+
+ul li ul li {
+  clear: both;
+width: 100%;
+}
 footer {
     position: absolute;
     top: 90vh;

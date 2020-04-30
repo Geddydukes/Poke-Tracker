@@ -300,3 +300,8 @@ width: 100%;
   bottom: 600px;
   float: right;
 }
+.pokemonContainer > li,
+.pokemonContainer > a > li,
+.pokemonContainer > h1{
+  text-transform: capitalize;
+}
