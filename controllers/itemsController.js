@@ -19,7 +19,6 @@ router.get("/", async (req, res) => {
 router.get("/:name", async (req, res) => {
   try {
     const item = await P.getItemByName(req.params.name);
-    // res.send(item);
     res.render("items/show", {
       item: item,
     });
